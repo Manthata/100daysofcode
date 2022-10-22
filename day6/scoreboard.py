@@ -12,15 +12,23 @@ class Scoreboard(Turtle):
         self.score = 0
         self.color("white")
         self.penup()
-        self.goto(-100, 260)
-        self.update_score()
+        self.goto(0, 270)
+        self.update_scoreboard()
         self.hideturtle()
 
-        
-    def update_score(self):
+    def game_over(self):
+        """ GAME OVER squence"""
+        self.goto(0,0)
+        self.write("GAME OVER", False, align="center", font=('Arial', 24, 'normal')) 
+        self.hideturtle()
+
+    def update_scoreboard(self):
         """_summary_
         """
+        self.write(f"Score: {self.score}", False, align="center", font=('Arial', 24, 'normal'))
+    
+    def update_score(self):
+        """ Add one to the score when the snake collides with the food """
         self.score +=1
         self.clear()
-        self.write(f"Score: {self.score}", False, align="center", font=('Arial', 24, 'normal'))
-
+        self.update_scoreboard()
