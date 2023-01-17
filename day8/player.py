@@ -22,7 +22,7 @@ class Player(Turtle):
         self.shape("turtle")
         self.penup()
         self.goto(STARTING_POSITION)
-        
+        self.setheading(90)
 
     def move(self):
         """
@@ -31,6 +31,20 @@ class Player(Turtle):
         new_y = self.ycor() + self.move_y
         new_x = self.xcor()
         self.goto(new_x,new_y)
+    
+
+    def check_finish(self):
+        """_summary_
+        """
+        if self.ycor() >= FINISH_LINE_Y:
+            return True
+    
+    def reset(self):
+        """_summary_
+        """
+        self.goto(STARTING_POSITION)
+    
+
 
 
 
