@@ -12,6 +12,7 @@ screen.listen()
 
 player = Player()
 carmanager = CarManager()
+scoreboard = Scoreboard()
 screen.onkey(player.move, "Up")
 game_is_on = True
 while game_is_on:
@@ -19,6 +20,7 @@ while game_is_on:
     if player.check_finish():
         player.reset()
         carmanager.increment_speed()
+        scoreboard.add_level()
 
     
     carmanager.make_car()
@@ -28,7 +30,7 @@ while game_is_on:
     for car in carmanager.cars:
         if car.distance(player) <= 20:
             game_is_on = False
-            # Icreament the speed
+            scoreboard.game_over()
 
 
     

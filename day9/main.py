@@ -1,5 +1,3 @@
-from typing import Union
-
 from fastapi import FastAPI, Response
 import qrcode
 from io import BytesIO
